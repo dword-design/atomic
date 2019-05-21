@@ -1,0 +1,9 @@
+{
+  "name": "@dword-design/atomic",
+  "version": "0.1.0",
+  "main": "src/index.scss",
+  "license": "MIT",
+  "devDependencies": {
+    "@dword-design/base": "^0.3.2"
+  }
+}

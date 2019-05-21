@@ -1,0 +1,331 @@
+@for $i from 1 through 12 {
+  .w-#{$i} {
+    width: $i * 100 / 12 + 0%;
+  }
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.min-w-full {
+  min-width: 100%;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+
+.h-full {
+  height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.min-h-full {
+  min-height: 100%;
+}
+
+.max-h-full {
+  max-height: 100%;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hide-on-mobile {
+
+  @media (max-width: #{$break-sm}px) {
+    @include visually-hidden;
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+@mixin spacing($property, $class, $label, $gap) {
+
+  .#{$class}-#{$label} {
+    #{$property}: $gap;
+  }
+
+  .#{$class}x-#{$label} {
+    #{$property}-left: $gap;
+    #{$property}-right: $gap;
+  }
+
+  .#{$class}y-#{$label} {
+    #{$property}-top: $gap;
+    #{$property}-bottom: $gap;
+  }
+
+  .#{$class}l-#{$label} {
+    #{$property}-left: $gap;
+  }
+
+  .#{$class}t-#{$label} {
+    #{$property}-top: $gap;
+  }
+
+  .#{$class}r-#{$label} {
+    #{$property}-right: $gap;
+  }
+
+  .#{$class}b-#{$label} {
+    #{$property}-bottom: $gap;
+  }
+}
+
+@each $label, $gap in $gaps {
+  @include spacing('padding', 'p', $label, $gap);
+  @include spacing('margin', 'm', $label, $gap);
+}
+
+@mixin radius($label, $radius) {
+  .r-#{$label} {
+    border-radius: $radius;
+  }
+
+  .r-tl-#{$label} {
+    border-top-left-radius: $radius;
+  }
+
+  .r-tr-#{$label} {
+    border-top-right-radius: $radius;
+  }
+
+  .r-br-#{$label} {
+    border-bottom-right-radius: $radius;
+  }
+
+  .r-bl-#{$label} {
+    border-bottom-left-radius: $radius;
+  }
+
+  .r-l-#{$label} {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+
+  .r-r-#{$label} {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }
+}
+
+@each $label, $radius in $radii {
+  @include radius($label, $radius);
+}
+
+@include radius('0', 0);
+
+@each $label, $weight in $font-weights {
+
+  .font-#{$label} {
+    font-weight: $weight;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+.no-focus-outline:focus {
+  outline: none;
+}
+
+.no-pointer-events {
+  pointer-events: none;
+}
+
+.pointer-events {
+  pointer-events: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.pin {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.pin-t {
+  top: 0;
+}
+
+.pin-r {
+  right: 0;
+}
+
+.pin-b {
+  bottom: 0;
+}
+
+.pin-l {
+  left: 0;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.shadow-md {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-t-solid {
+  border-top-style: solid;
+}
+
+.border-r-solid {
+  border-right-style: solid;
+}
+
+.border-b-solid {
+  border-bottom-style: solid;
+}
+
+.border-l-solid {
+  border-left-style: solid;
+}
+
+@each $label, $width in $border-widths {
+
+  .border-#{$label} {
+    border-width: $width;
+  }
+
+  .border-t-#{$label} {
+    border-top-width: $width;
+  }
+
+  .border-r-#{$label} {
+    border-right-width: $width;
+  }
+
+  .border-b-#{$label} {
+    border-bottom-width: $width;
+  }
+
+  .border-l-#{$label} {
+    border-left-width: $width;
+  }
+}
+
+@each $label, $opacity in $opacities {
+
+  .opacity-#{$label} {
+    opacity: $opacity;
+  }
+}
+
+@each $label, $duration in $transition-durations {
+
+  .trans-#{$label} {
+    transition: $duration all;
+  }
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

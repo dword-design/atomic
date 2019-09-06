@@ -4,6 +4,6 @@
   "main": "src/index.scss",
   "license": "MIT",
   "devDependencies": {
-    "@dword-design/base": "^0.3.2"
+    "@dword-design/base": "^0.11.3"
   }
 }
